@@ -1,0 +1,99 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.48167,
+          32.51806
+        ]
+      },
+      "properties": {
+        "name": "Ciudad antigua de Bosra",
+        "video_url": "https://www.youtube.com/watch?v=w3c3h7P7kJU",
+        "ficha_unesco": "https://whc.unesco.org/en/list/22",
+        "descripcion_es": "Antigua capital de la provincia romana de Arabia e importante etapa de la ruta de las caravanas que conducía a La Meca, Bosra conserva en el recinto de sus sólidas murallas un magnífico teatro romano del siglo II, vestigios arqueológicos paleocristianos y varias mezquitas."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.30639,
+          33.51139
+        ]
+      },
+      "properties": {
+        "name": "Ciudad antigua de Damasco",
+        "video_url": "https://www.youtube.com/watch?v=05P5IzE1DIE",
+        "ficha_unesco": "https://whc.unesco.org/en/list/20",
+        "descripcion_es": "Fundada en el tercer milenio a.C., Damasco es una de las ciudades más antiguas del Oriente Medio. En la Edad Media fue el centro de una próspera industria artesanal especializada en la fabricación de espadas y encajes. De los 125 monumentos que conserva de los distintos períodos de su historia, uno de los más espectaculares es la gran mezquita de los omeyas, construida el siglo VIII en el emplazamiento de un santuario asirio."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.16667,
+          36.23333
+        ]
+      },
+      "properties": {
+        "name": "Ciudad antigua de Aleppo",
+        "video_url": "https://www.youtube.com/watch?v=w9IGyFxLX5Y",
+        "ficha_unesco": "https://whc.unesco.org/en/list/21",
+        "descripcion_es": "Situada en la encrucijada de varias rutas comerciales desde el segundo milenio antes de nuestra era, Alepo estuvo sucesivamente bajo la dominación de hititas, asirios, árabes, mongoles, mamelucos y otomanos. La gran mezquita del siglo XII, la ciudadela del siglo XIII y sus madrazas, palacios, caravasares y baños de vapor (hammam) del siglo XVII forman parte de un tejido urbano armonioso y único en su género, que hoy en día corre peligro a causa de la superpoblación."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.8441666667,
+          36.3341666667
+        ]
+      },
+      "properties": {
+        "name": "Aldeas antiguas del norte de Siria",
+        "ficha_unesco": "https://whc.unesco.org/en/list/1348",
+        "descripcion_es": "Este sitio, que comprende cuarenta aldeas del noroeste de Siria agrupadas en ocho parques arqueológicos, constituye un notable testimonio de la vida rural en el periodo de la Antigüedad tardía y la época bizantina. Construidas desde el siglo I hasta el VII y abandonadas entre los siglos VIII y X, esas aldeas se caracterizan por el buen estado de conservación de su paisaje cultural y de los vestigios arquitectónicos de viviendas, templos paganos, iglesias, cisternas, baños termales y otros edificios. El paisaje cultural subsistente de las aldeas ilustra de modo notable la transición del mundo antiguo pagano del Imperio Romano al cristianismo bizantino. Los vestigios de técnicas hidráulicas, de muros de protección y de planes de parcelación agraria de la época romana muestran también el dominio de la agricultura que tenían los habitantes de esas aldeas."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.2630555555,
+          34.7816666667
+        ]
+      },
+      "properties": {
+        "name": "Crac de los Caballeros y Qal’at Salah Al Din",
+        "video_url": "https://www.youtube.com/watch?v=ojW7PbO3c4c",
+        "ficha_unesco": "https://whc.unesco.org/en/list/1229",
+        "descripcion_es": "Estas dos fortalezas son ejemplos sumamente significativos del intercambio de influencias culturales y de la evolución de la arquitectura militar en el Cercano Oriente en tiempos de las Cruzadas (siglos XI al XIII). El Crac de los Caballeros fue construido por la Orden Militar y Hospitalaria de San Juan de Jerusalén entre 1142 y 1271. A finales del siglo XIII los mamelucos hicieron más obras en esta fortaleza, que es uno de los castillos de la época de las Cruzadas en mejor estado de conservación. Por su parte, el Castillo de Saladino (Qal’at Salah Al Din), aunque está parcialmente en ruinas, es otro ejemplo excepcional de este tipo de edificaciones militares, tanto en lo que se refiere a la calidad de su construcción como a la estratigrafía histórica subsistente. Esta última muestra los elementos bizantinos primigenios del siglo X, las transformaciones efectuadas por los francos a finales del siglo XII y las fortificaciones añadidas por la dinastía de los ayubidas (finales del siglo XII a mediados del XIII)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.26667,
+          34.55417
+        ]
+      },
+      "properties": {
+        "name": "Sitio de Palmira",
+        "video_url": "https://www.youtube.com/watch?v=SpKpvra-Vso",
+        "ficha_unesco": "https://whc.unesco.org/en/list/23",
+        "descripcion_es": "Situado al nordeste de Damasco, en el desierto de Siria, el oasis de Palmira alberga las ruinas monumentales de una gran ciudad que fue uno de los centros culturales más importantes de la Antigüedad. Sometidas a la influencia de diversas civilizaciones, la arquitectura y las artes de Palmira fusionaron en los siglos I y II las técnicas grecorromanas con las tradiciones artísticas autóctonas y persas."
+      }
+    }
+  ]
+}

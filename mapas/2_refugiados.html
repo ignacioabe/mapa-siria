@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>2_refugiados</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        .legend {
+            background-color: #fff;
+            border-radius: 3px;
+            bottom: 30px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            z-index: 1;
+        }
+
+        .legend h4 {
+            margin: 0 0 10px;
+        }
+
+        .legend div span {
+            border-radius: 50%;
+            display: inline-block;
+            height: 10px;
+            margin-right: 5px;
+            width: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+
+<script src="./0_base_mapa.js"></script>
+
+<script>
+
+paises = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "pais": "Turquía",
+        "numero-refugiados": 3579254
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.35400390625,
+          38.92522904714054        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pais": "Irak",
+        "numero-refugiados": 250708
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.6376953125,
+          33.137551192346145
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pais": "El Líbano",
+        "numero-refugiados": 986942
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.83740234375,
+          33.93424531117312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pais": "Jordania",
+        "numero-refugiados": 666113
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.37573242187499,
+          31.306715155075167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pais": "Egipto",
+        "numero-refugiados": 128956
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.234130859374996,
+          30.12612436422458
+        ]
+      }
+    }
+  ]
+}
+
+map.on('load', function () {
+
+map.addSource('paises', { type: 'geojson', data: paises });
+map.addLayer({
+    "id": "paises",
+    "type": "circle",
+    "source": "paises",
+    "layout": {
+    },
+    "paint": {
+        'circle-radius': [
+            "interpolate",
+            ["linear"],
+            ["get", "numero-refugiados"],
+            30000,
+            10,
+            3500000,
+            100
+            ],
+        'circle-color': '#a00',
+        "circle-opacity": 0.5
+    }
+});
+
+// [
+//   "interpolate",
+//   ["linear"],
+//   ["get", "cartodb_id"],
+//   1,
+//   5,
+//   132,
+//   50
+// ]
+
+    // Esto es para encuadrar el país independiente del tamaño del mapa en pixeles.
+    // let siria = [[34.34326171875, 31.98944183792288],[43.08837890624999, 37.735969208590504]]
+    // map.fitBounds(siria, {speed: 0.075});
+
+});
+
+</script>
+
+</body>
+</html>

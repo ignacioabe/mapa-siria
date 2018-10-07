@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>3_patrimonio</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+
+        .mapboxgl-popup {
+            max-width: 400px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+
+<script src="./0_base_mapa.js"></script>
+
+<script>
+
+//añade el contorno del país
+var url1 = './contorno-pais.geojson';
+var url2 = './puntos-unesco.geojson';
+
+map.on('load', function () {
+
+    map.addSource('contorno', { type: 'geojson', data: url1 });
+    map.addLayer({
+        "id": "contorno",
+        "type": "line",
+        "source": "contorno",
+        "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        "paint": {
+            "line-color": "#a00",
+            "line-width": 3,
+            "line-opacity": 0.4
+        }
+    });
+
+    map.addSource('puntos', { type: 'geojson', data: url2 });
+    map.addLayer({
+        "id": "puntos",
+        "type": "circle",
+        "source": "puntos",
+        "layout": {
+            // "icon-image": "castle-15",
+            // "icon-allow-overlap": true
+        },
+        "paint": {
+            'circle-radius': 10,
+            'circle-color': '#a00'
+        }
+    });
+
+    // When a click event occurs on a feature in the places layer, open a popup at the
+    // location of the feature, with description HTML from its properties.
+    map.on('click', 'puntos', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var name = e.features[0].properties.name;
+        var description = e.features[0].properties.descripcion_es;
+        let ficha = e.features[0].properties.ficha_unesco;
+        let video = e.features[0].properties.video_url;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(
+                `<strong>${name}</strong>
+                <p>${description}</p>
+                <a href="${video}" target="_blank">video</a><br>
+                <a href="${ficha}" target="_blank">ficha oficial</a>`
+                )
+            .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', 'puntos', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'puntos', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+    // Esto es para encuadrar el país independiente del tamaño del mapa en pixeles.
+    let siria = [[34.34326171875, 31.98944183792288],[43.08837890624999, 37.735969208590504]]
+    map.fitBounds(siria, {speed: 0.075});
+
+
+});
+
+</script>
+
+</body>
+</html>

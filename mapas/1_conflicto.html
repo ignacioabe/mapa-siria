@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>1_conflicto</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        .legend {
+            background-color: #fff;
+            border-radius: 3px;
+            bottom: 30px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            z-index: 1;
+        }
+
+        .legend h4 {
+            margin: 0 0 10px;
+        }
+
+        .legend div span {
+            border-radius: 50%;
+            display: inline-block;
+            height: 10px;
+            margin-right: 5px;
+            width: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+
+<div id='leyenda-bandos' class='legend'>
+    <h4>División territorial del conflicto 2018</h4>
+    <div><span style='background-color: hsl(0, 61%, 65%)'></span>Rebeldes</div>
+    <div><span style='background-color: hsl(137, 63%, 42%)'></span>Daesh</div>
+    <div><span style='background-color: hsl(67, 61%, 52%)'></span>Hezbollá</div>
+    <div><span style='background-color: hsl(230, 67%, 61%)'></span>Régimen Sirio</div>
+    <div><span style='background-color: hsl(313, 78%, 71%)'></span>Kurdos</div>
+
+
+</div>
+
+<script src="./0_base_mapa.js"></script>
+
+<script>
+
+map.on('load', function () {
+
+    // Añade capas con los polígonos del control territorial
+    map.addSource('control', { type: 'geojson', data: './conflicto-2018.geojson' });
+    map.addLayer({
+    "id": "control",
+    "type": "fill",
+    "source": "control",
+    "layout": {},
+    "paint": {
+        "fill-color": [
+            "match",
+            [
+                "get",
+                "control-territorial"
+            ],
+            "rebeldes",
+            "hsl(0, 61%, 65%)",
+            "daesh",
+            "hsl(137, 63%, 42%)",
+            "hezbollá",
+            "hsl(67, 61%, 52%)",
+            "régimen sirio",
+            "hsl(230, 67%, 61%)",
+            "kurdos",
+            "hsl(313, 78%, 71%)",
+            "#000000"
+            ],
+        "fill-opacity": 0.4
+    }
+
+});
+
+    // Esto es para encuadrar el país independiente del tamaño del mapa en pixeles.
+    let siria = [[34.34326171875, 31.98944183792288],[43.08837890624999, 37.735969208590504]]
+    map.fitBounds(siria, {speed: 0.075});
+
+});
+
+</script>
+
+</body>
+</html>
