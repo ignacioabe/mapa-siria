@@ -10,8 +10,8 @@ También se puede mostrar el tema de las alianzas internacionales a partir la ta
 
 ## Crisis humanitaria de refugiados.
 
-- (Aquí)[http://www.unhcr.org/syria-emergency.html] hay un resumen de la situación general.
-- Y (Aquí)[https://data2.unhcr.org/en/situations/syria] hay muy buena información estadística sobre los exiliados.
+- [Aquí](http://www.unhcr.org/syria-emergency.html) hay un resumen de la situación general.
+- Y [Aquí](https://data2.unhcr.org/en/situations/syria) hay muy buena información estadística sobre los exiliados.
 
 (algunas estadísticas básicas)
 - 13.1 million people in need in Syria
